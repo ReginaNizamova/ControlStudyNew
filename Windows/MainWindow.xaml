@@ -1,0 +1,45 @@
+﻿<Window x:Class="ControlStudy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlStudy"
+        mc:Ignorable="d"
+        Title="ControlStudy" Icon="/Resource/icon.ico" WindowStartupLocation="CenterScreen" Height="480" Width="850" MinHeight="480" MinWidth="850">
+
+
+    <Window.Resources>
+        <Style TargetType="TextBox" x:Key="textBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="Azure"/>
+        </Style>
+        <x:Array x:Key="images" Type="ImageSource">
+            <BitmapImage UriSource="/Resource/Background/01.jpg"/>
+            <BitmapImage UriSource="/Resource/Background/02.jpg"/>
+            <BitmapImage UriSource="/Resource/Background/03.jpg"/>
+            <BitmapImage UriSource="/Resource/Background/04.jpg"/>
+            <BitmapImage UriSource="/Resource/Background/05.jpg"/>
+        </x:Array>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="backgroundImage" Grid.ColumnSpan="3" Stretch="UniformToFill"/>
+
+        <Frame ContentRendered="FrameContentRendered" x:Name="frame" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+
+        <Button Background="Transparent" BorderThickness="0" Height="35" VerticalAlignment="Top" Margin="5 0 0  0" Name="buttonBack" HorizontalAlignment="Left" Width="35" Click="ButtonBackClick">
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Назад"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Source="/Resource/back.png"/>
+        </Button> 
+    </Grid>
+</Window>

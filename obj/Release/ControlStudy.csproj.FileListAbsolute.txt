@@ -1,0 +1,89 @@
+C:\Users\User\Desktop\ControlStudy\bin\Release\ControlStudy.exe.config
+C:\Users\User\Desktop\ControlStudy\bin\Release\ControlStudy.exe.manifest
+C:\Users\User\Desktop\ControlStudy\bin\Release\ControlStudy.application
+C:\Users\User\Desktop\ControlStudy\bin\Release\ControlStudy.exe
+C:\Users\User\Desktop\ControlStudy\bin\Release\ControlStudy.pdb
+C:\Users\User\Desktop\ControlStudy\bin\Release\EntityFramework.dll
+C:\Users\User\Desktop\ControlStudy\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\ControlStudy\bin\Release\System.IO.Packaging.dll
+C:\Users\User\Desktop\ControlStudy\bin\Release\EntityFramework.xml
+C:\Users\User\Desktop\ControlStudy\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\ControlStudy\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\User\Desktop\ControlStudy\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\AddEditGradeWindow.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\AddEditUserWindow.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminJournalPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AuthorizationPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\MainWindow.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\StudentPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\TeacherPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminUsersPage.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\App.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy_Content.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy_MarkupCompile.cache
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy_MarkupCompile.lref
+C:\Users\User\Desktop\ControlStudy\obj\Release\App.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\AddEditGradeWindow.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\AddEditUserWindow.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminJournalPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AuthorizationPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Windows\MainWindow.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\StudentPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\TeacherPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\Pages\AdminUsersPage.baml
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.g.resources
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.Properties.Resources.resources
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.csproj.GenerateResource.cache
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.exe.manifest
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.application
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.csproj.CopyComplete
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.exe
+C:\Users\User\Desktop\ControlStudy\obj\Release\ControlStudy.pdb
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ControlStudy.exe.config
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ControlStudy.exe.manifest
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ControlStudy.application
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ControlStudy.exe
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ControlStudy.pdb
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\EntityFramework.dll
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\System.IO.Packaging.dll
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\EntityFramework.xml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\AddEditGradeWindow.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\AddEditUserWindow.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminJournalPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AuthorizationPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\MainWindow.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\StudentPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\TeacherPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminUsersPage.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\App.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy_Content.g.cs
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy_MarkupCompile.cache
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy_MarkupCompile.lref
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\App.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\AddEditGradeWindow.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\AddEditUserWindow.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminJournalPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AuthorizationPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Windows\MainWindow.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\StudentPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\TeacherPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\Pages\AdminUsersPage.baml
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.g.resources
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.Properties.Resources.resources
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.exe.manifest
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.application
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.csproj.CopyComplete
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.exe
+C:\Users\User\Desktop\Курсовая работа\ControlStudy\obj\Release\ControlStudy.pdb
