@@ -69,7 +69,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <TextBox x:Name="textGrade" Text="{Binding Grade}" ToolTip="Цифры от 2 до 5, 'н'" FontFamily="Comic Sans MS" Width="150" Height="25"  FontSize="16"/>
+                        <TextBox x:Name="textGrade" Text="{Binding Grade}" ToolTip="Цифры от 2 до 5" FontFamily="Comic Sans MS" Width="150" Height="25"  FontSize="16"/>
 
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="оценка" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>

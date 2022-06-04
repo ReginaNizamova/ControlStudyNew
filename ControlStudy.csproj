@@ -113,6 +113,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\ColorConverter.cs" />
     <Compile Include="Classes\Grades.cs" />
+    <Compile Include="Classes\Graphic.cs" />
     <Compile Include="Discipline.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

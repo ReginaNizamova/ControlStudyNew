@@ -11,7 +11,7 @@
             <StackPanel Orientation="Horizontal" >
                 <StackPanel  Width="150" x:Name="textStackPanel" Margin="0 0 50 0">
                     <Canvas Margin="0 0 0 30">
-                        <TextBox  x:Name="familyText" Text="{Binding Person.Family}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150" />
+                        <TextBox  x:Name="familyText" Text="{Binding Family}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150" />
 
                         <TextBlock IsHitTestVisible="False" Text="фамилия" FontFamily="Comic Sans MS" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
@@ -28,7 +28,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <TextBox x:Name="nameText" FontFamily="Comic Sans MS" Text="{Binding Person.Name}" Style="{StaticResource textBox}" Width="150" />
+                        <TextBox x:Name="nameText" FontFamily="Comic Sans MS" Text="{Binding Name}" Style="{StaticResource textBox}" Width="150" />
 
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="имя" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
@@ -45,7 +45,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <TextBox x:Name="patronimicText" Text="{Binding Person.Patronimic}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
+                        <TextBox x:Name="patronimicText" Text="{Binding Patronimic}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
 
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text=" отчество" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
@@ -62,7 +62,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <ComboBox FontSize="16" x:Name="comboBoxGroup" SelectedItem="{Binding Person.Group}" DisplayMemberPath="Group1" FontFamily="Comic Sans MS" Width="150"  Height="25"/>
+                        <ComboBox FontSize="16" x:Name="comboBoxGroup" SelectedItem="{Binding Group}" DisplayMemberPath="Group1" FontFamily="Comic Sans MS" Width="150"  Height="25"/>
 
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="группа" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
@@ -82,7 +82,7 @@
 
                 <StackPanel Width="150" x:Name="textStackPanel2" >
                     <Canvas Margin="0 0 0 30">
-                        <ComboBox FontSize="16"  x:Name="comboBoxRole"  SelectedItem="{Binding Role}" DisplayMemberPath="Role1" Width="150" Height="25" FontFamily="Comic Sans MS"/>
+                        <ComboBox FontSize="16"  x:Name="comboBoxRole"  SelectedItem="{Binding User.Role}" DisplayMemberPath="Role1" Width="150" Height="25" FontFamily="Comic Sans MS"/>
 
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="роль" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
@@ -99,7 +99,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <TextBox x:Name="loginText" Text="{Binding LoginUser}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
+                        <TextBox x:Name="loginText" Text="{Binding Users.LoginUser}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="логин" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
@@ -115,7 +115,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <TextBox ToolTip=" Не менее 8 символов &#x0a; Строчные буквы &#x0a; Заглавные буквы &#x0a; Цифры &#x0a; Символы" x:Name="passwordPersonText" Text="{Binding Password}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
+                        <TextBox ToolTip=" Не менее 8 символов &#x0a; Строчные буквы &#x0a; Заглавные буквы &#x0a; Цифры &#x0a; Символы" x:Name="passwordPersonText" Text="{Binding Users.Password}" FontFamily="Comic Sans MS" Style="{StaticResource textBox}" Width="150"/>
                         <TextBlock IsHitTestVisible="False" FontFamily="Comic Sans MS" Text="пароль" Foreground="DarkGray" FontSize="16">
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">

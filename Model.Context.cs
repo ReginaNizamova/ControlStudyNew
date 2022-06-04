@@ -15,7 +15,7 @@ namespace ControlStudy
     
     public partial class ControlStudyEntities : DbContext
     {
-        private static ControlStudyEntities _context = new ControlStudyEntities();
+        private static ControlStudyEntities _context;
 
         public ControlStudyEntities()
             : base("name=ControlStudyEntities")

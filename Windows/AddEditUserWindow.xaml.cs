@@ -9,23 +9,19 @@ namespace ControlStudy
 {
     public partial class AddEditUserWindow : Window
     {
-        ControlStudyEntities dataContext = new ControlStudyEntities();
-        private User _currentUser = new User();
         private Person _currentPerson = new Person();
         private DataGrid _dataGrid;
 
-        public AddEditUserWindow(User selectedUser, DataGrid dataGridAdmin)
+        public AddEditUserWindow(Person selectedPerson, DataGrid dataGridAdmin)
         {
             InitializeComponent();
 
-            if (selectedUser != null)
-                _currentUser = selectedUser;
-            else
-                _currentUser.Person = _currentPerson;
+            if (selectedPerson != null)
+                _currentPerson = selectedPerson;
 
-            DataContext = _currentUser;
-            comboBoxGroup.ItemsSource = dataContext.Groups.ToList();
-            comboBoxRole.ItemsSource = dataContext.Roles.ToList();
+            DataContext = _currentPerson;
+            comboBoxGroup.ItemsSource = ControlStudyEntities.GetContext().Groups.ToList();
+            comboBoxRole.ItemsSource = ControlStudyEntities.GetContext().Roles.ToList();
             _dataGrid = dataGridAdmin;
         }
 
@@ -33,16 +29,16 @@ namespace ControlStudy
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(_currentUser.Person.Family) || string.IsNullOrWhiteSpace(_currentUser.Person.Name) 
-                || string.IsNullOrWhiteSpace(_currentUser.Person.Patronimic))
+            if (string.IsNullOrWhiteSpace(_currentPerson.Family) || string.IsNullOrWhiteSpace(_currentPerson.Name) 
+                || string.IsNullOrWhiteSpace(_currentPerson.Patronimic))
                 errors.AppendLine("ФИО");
-            if (_currentUser.Role == null)
+            if (_currentPerson.Users.Select(x => x.Role.Role1) == null)
                 errors.AppendLine("Роль");
-            if (_currentUser.Person.Group == null)
+            if (comboBoxGroup.SelectedItem == null)
                 errors.AppendLine("Группа (если роль не студент выбрать пустую строку)");
-            if (string.IsNullOrWhiteSpace(_currentUser.LoginUser))
+            if (string.IsNullOrWhiteSpace(_currentPerson.Users.Select(x => x.LoginUser).ToString()))
                 errors.AppendLine("Логин");
-            if (string.IsNullOrWhiteSpace(_currentUser.Password))
+            if (string.IsNullOrWhiteSpace(_currentPerson.Users.Select(x => x.Password).ToString()))
                 errors.AppendLine("Пароль");
 
             if (CheckPass(passwordPersonText.Text) == false)
@@ -58,12 +54,12 @@ namespace ControlStudy
                 return;
             }
 
-            if (_currentUser.IdUser == 0)
-                dataContext.Users.Add(_currentUser);
+            if (_currentPerson.IdPerson == 0)
+                ControlStudyEntities.GetContext().People.Add(_currentPerson);
 
             try
             {
-                dataContext.SaveChanges();
+                ControlStudyEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена!");
             }
             catch (Exception ex)
@@ -146,8 +142,8 @@ namespace ControlStudy
 
         private void WindowClosed(object sender, EventArgs e)//Обновляет DataGrid 
         {
-            dataContext.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            _dataGrid.ItemsSource = dataContext.Users.ToList();
+            ControlStudyEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            _dataGrid.ItemsSource = ControlStudyEntities.GetContext().People.ToList();
         }
     }
 }    

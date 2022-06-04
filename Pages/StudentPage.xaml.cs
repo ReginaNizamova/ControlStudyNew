@@ -31,5 +31,15 @@ namespace ControlStudy
                 Timer.SaveTimeSession(loginNowUser);
             }
         }
+
+        private void DisciplineCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void SemesterCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

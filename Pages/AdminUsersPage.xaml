@@ -19,13 +19,13 @@
         
         <DataGrid  ColumnWidth="*" HorizontalScrollBarVisibility="Auto"  AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="1" Margin="25" x:Name="dataGridAdmin" FontSize="15"  Opacity="0.85" Background="Azure"  AlternatingRowBackground="#9ACeeb" AlternationCount="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Роль"      Binding="{Binding Role.Role1}" Width="1.5*"/>
-                <DataGridTextColumn Header="Логин"     Binding="{Binding LoginUser}" Width="*"/>
-                <DataGridTextColumn Header="Пароль"    Binding="{Binding Password}" Width="*"/>
-                <DataGridTextColumn Header="Группа"    Binding="{Binding Person.Group.Group1}" Width="*"/>
-                <DataGridTextColumn Header="Фамилия"   Binding="{Binding Person.Family}" Width="1.5*"/>
-                <DataGridTextColumn Header="Имя"       Binding="{Binding Person.Name}" Width="*"/>
-                <DataGridTextColumn Header="Отчество"  Binding="{Binding Person.Patronimic}" Width="*"/>
+                <DataGridTextColumn Header="Роль"      Binding="{Binding User.Role.Role1}" Width="1.5*"/>
+                <DataGridTextColumn Header="Логин"     Binding="{Binding User.LoginUser}" Width="*"/>
+                <DataGridTextColumn Header="Пароль"    Binding="{Binding User.Password}" Width="*"/>
+                <DataGridTextColumn Header="Группа"    Binding="{Binding Group.Group1}" Width="*"/>
+                <DataGridTextColumn Header="Фамилия"   Binding="{Binding Family}" Width="1.5*"/>
+                <DataGridTextColumn Header="Имя"       Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Отчество"  Binding="{Binding Patronimic}" Width="*"/>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
