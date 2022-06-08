@@ -19,26 +19,27 @@ namespace ControlStudy
             if (selectedPerson != null)
                 _currentPerson = selectedPerson;
 
-            DataContext = _currentPerson;
+
             comboBoxGroup.ItemsSource = ControlStudyEntities.GetContext().Groups.ToList();
             comboBoxRole.ItemsSource = ControlStudyEntities.GetContext().Roles.ToList();
             _dataGrid = dataGridAdmin;
+            DataContext = _currentPerson;
         }
 
         private void AddEditUserClick(object sender, RoutedEventArgs e) //Добавление/изменение пользователя
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(_currentPerson.Family) || string.IsNullOrWhiteSpace(_currentPerson.Name) 
-                || string.IsNullOrWhiteSpace(_currentPerson.Patronimic))
+            if (string.IsNullOrWhiteSpace(_currentPerson.Family) || string.IsNullOrWhiteSpace(_currentPerson.Name)
+              || string.IsNullOrWhiteSpace(_currentPerson.Patronimic))
                 errors.AppendLine("ФИО");
-            if (_currentPerson.Users.Select(x => x.Role.Role1) == null)
+            if (string.IsNullOrWhiteSpace(_currentPerson.Role.Role1))
                 errors.AppendLine("Роль");
-            if (comboBoxGroup.SelectedItem == null)
+            if (_currentPerson.Group.Group1 == null)
                 errors.AppendLine("Группа (если роль не студент выбрать пустую строку)");
-            if (string.IsNullOrWhiteSpace(_currentPerson.Users.Select(x => x.LoginUser).ToString()))
+            if (string.IsNullOrWhiteSpace(_currentPerson.LoginUser))
                 errors.AppendLine("Логин");
-            if (string.IsNullOrWhiteSpace(_currentPerson.Users.Select(x => x.Password).ToString()))
+            if (string.IsNullOrWhiteSpace(_currentPerson.Password))
                 errors.AppendLine("Пароль");
 
             if (CheckPass(passwordPersonText.Text) == false)

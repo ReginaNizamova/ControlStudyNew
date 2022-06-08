@@ -153,9 +153,6 @@
     <Compile Include="Session.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Windows\AddEditGradeWindow.xaml.cs">
       <DependentUpon>AddEditGradeWindow.xaml</DependentUpon>
     </Compile>
@@ -306,6 +303,11 @@
     <Resource Include="Resource\journal.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\save.png" />
+    <Resource Include="Resource\graphic.png" />
+    <Resource Include="Resource\report.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -316,9 +318,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resource\save.png" />
-    <Resource Include="Resource\graphic.png" />
-    <Resource Include="Resource\report.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,22 +19,6 @@ namespace ControlStudy
         public int IdDiscipline { get; set; }
         public int Grade { get; set; }
         public System.DateTime DateGrade { get; set; }
-
-        private DateTime _endDate;
-        public DateTime EndDate
-        { 
-            get
-            {
-                _endDate = DateTime.Today.Date;
-                return _endDate;
-            }
-
-            set
-            {
-                EndDate = _endDate;
-            }
-        }
-
         public int Semester { get; set; }
     
         public virtual Discipline Discipline { get; set; }

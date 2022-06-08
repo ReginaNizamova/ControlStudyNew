@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlStudy.exe" size="1884120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlStudy.exe" size="1881048">
       <assemblyIdentity name="ControlStudy" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rO4TlrqUTwzcxI/fTo22jJM+y0cVhGdeyM+pIjhjhxU=</dsig:DigestValue>
+        <dsig:DigestValue>FwqQSGP1+rJlBI/yf9W8tQodi0A69LYMF7/tsuYMDOg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,13 +137,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ControlStudy.exe.config" size="1316">
+  <file name="ControlStudy.exe.config" size="1318">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XYBcVfOCn1/JLR30s/6ZvMljf4Mq2qRQCkrRKniXS3U=</dsig:DigestValue>
+      <dsig:DigestValue>YgJ7oAqUuZN3v12v0NsPLGAPqB3/UoP/EXzjwh/5Cnw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Model.Context.tt" size="22929">

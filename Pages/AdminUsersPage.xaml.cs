@@ -12,7 +12,6 @@ namespace ControlStudy.Pages
         {
             InitializeComponent();
 
-            //dataGridAdmin.Items.Clear();
             dataGridAdmin.ItemsSource = ControlStudyEntities.GetContext().People.ToList();
         }
 

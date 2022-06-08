@@ -10,7 +10,6 @@ namespace ControlStudy
     public partial class StudentPage : Page
     {
         readonly SessionTimer Timer = new SessionTimer(); //Включение таймера
-        ControlStudyEntities dataContext = new ControlStudyEntities();
 
         public StudentPage(string loginNowUser)
         {
@@ -18,9 +17,9 @@ namespace ControlStudy
 
             List<Progress> progresses = new List<Progress>();
 
-            var idPerson = dataContext.Users.Where(p => p.LoginUser == loginNowUser).Select(p => p.IdPerson).FirstOrDefault();
+            var idPerson = ControlStudyEntities.GetContext().People.Where(p => p.LoginUser == loginNowUser).Select(p => p.IdPerson).FirstOrDefault();
 
-            progresses = dataContext.Progresses.Where(p => p.IdPerson == idPerson).ToList();
+            progresses = ControlStudyEntities.GetContext().Progresses.Where(p => p.IdPerson == idPerson).ToList();
 
             dataGridProgress.Items.Clear();
             dataGridProgress.ItemsSource = progresses;

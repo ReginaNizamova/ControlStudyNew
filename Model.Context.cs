@@ -22,13 +22,15 @@ namespace ControlStudy
         {
         }
 
-        public static ControlStudyEntities GetContext ()
+        public static ControlStudyEntities GetContext()
         {
             if (_context == null)
                 _context = new ControlStudyEntities();
             return _context;
         }
-    
+
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -40,6 +42,5 @@ namespace ControlStudy
         public virtual DbSet<Progress> Progresses { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
-        public virtual DbSet<User> Users { get; set; }
     }
 }

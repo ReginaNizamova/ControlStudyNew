@@ -17,11 +17,11 @@ namespace ControlStudy
         {
             ControlStudyEntities userContext = new ControlStudyEntities();
 
-            var check = userContext.Users.Where(top => top.Password == passwordPersonText.Password && top.LoginUser == loginText.Text).FirstOrDefault(); // Проверка пароля и логина
+            var check = userContext.People.Where(top => top.Password == passwordPersonText.Password && top.LoginUser == loginText.Text).FirstOrDefault(); // Проверка пароля и логина
 
             if (check != null) // Переход на соответствующую страницу
             {
-                List<int> userRole = (from User in userContext.Users where User.LoginUser == loginText.Text select User.IdRole).ToList();
+                List<int> userRole = (from p in userContext.People where p.LoginUser == loginText.Text select p.IdRole).ToList();
 
                 if (userRole[0] == 1)
                 {

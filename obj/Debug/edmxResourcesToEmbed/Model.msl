@@ -25,6 +25,9 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Patronimic" ColumnName="Patronimic" />
           <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+          <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,17 +58,6 @@
           <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
           <ScalarProperty Name="DateSession" ColumnName="DateSession" />
           <ScalarProperty Name="Time" ColumnName="Time" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="ControlStudyModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-          <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -6,7 +6,7 @@
     </Key>
     <Property Name="IdDiscipline" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Discipline1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Progresses" Relationship="Self.FK_Discipline_Progress" FromRole="Discipline" ToRole="Progress" />
+    <NavigationProperty Name="Progresses" Relationship="Self.FK_Progress_Discipline" FromRole="Discipline" ToRole="Progress" />
   </EntityType>
   <EntityType Name="Group">
     <Key>
@@ -25,10 +25,13 @@
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Patronimic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IdGroup" Type="Int32" Nullable="false" />
+    <Property Name="LoginUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Group" Relationship="Self.FK_Group" FromRole="Person" ToRole="Group" />
-    <NavigationProperty Name="Progresses" Relationship="Self.FK_Person_Progress" FromRole="Person" ToRole="Progress" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Person_Roles" FromRole="Person" ToRole="Roles" />
+    <NavigationProperty Name="Progresses" Relationship="Self.FK_Progress_Person" FromRole="Person" ToRole="Progress" />
     <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Person" FromRole="Person" ToRole="Session" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Users" FromRole="Person" ToRole="User" />
   </EntityType>
   <EntityType Name="Progress">
     <Key>
@@ -40,8 +43,8 @@
     <Property Name="Grade" Type="Int32" Nullable="false" />
     <Property Name="DateGrade" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Semester" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Discipline" Relationship="Self.FK_Discipline_Progress" FromRole="Progress" ToRole="Discipline" />
-    <NavigationProperty Name="Person" Relationship="Self.FK_Person_Progress" FromRole="Progress" ToRole="Person" />
+    <NavigationProperty Name="Discipline" Relationship="Self.FK_Progress_Discipline" FromRole="Progress" ToRole="Discipline" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_Progress_Person" FromRole="Progress" ToRole="Person" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -49,7 +52,7 @@
     </Key>
     <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Role1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Roles" FromRole="Roles" ToRole="User" />
+    <NavigationProperty Name="People" Relationship="Self.FK_Person_Roles" FromRole="Roles" ToRole="Person" />
   </EntityType>
   <EntityType Name="Session">
     <Key>
@@ -61,22 +64,8 @@
     <Property Name="Time" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Person" Relationship="Self.FK_Session_Person" FromRole="Session" ToRole="Person" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="IdUser" />
-    </Key>
-    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LoginUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IdRole" Type="Int32" Nullable="false" />
-    <Property Name="IdPerson" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Person" Relationship="Self.FK_Users" FromRole="User" ToRole="Person" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_Roles" FromRole="User" ToRole="Roles" />
-  </EntityType>
-  <Association Name="FK_Discipline_Progress">
-    <End Role="Discipline" Type="Self.Discipline" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="FK_Progress_Discipline">
+    <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
     <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Discipline">
@@ -101,10 +90,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Person_Progress">
-    <End Role="Person" Type="Self.Person" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+  <Association Name="FK_Person_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Progress_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
     <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Person">
@@ -129,34 +128,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Users">
-    <End Role="Person" Type="Self.Person" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="IdPerson" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IdPerson" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Roles">
-    <End Role="Roles" Type="Self.Role" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="IdRole" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IdRole" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="ControlStudyEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Disciplines" EntityType="Self.Discipline" />
     <EntitySet Name="Groups" EntityType="Self.Group" />
@@ -164,8 +135,7 @@
     <EntitySet Name="Progresses" EntityType="Self.Progress" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
     <EntitySet Name="Sessions" EntityType="Self.Session" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK_Discipline_Progress" Association="Self.FK_Discipline_Progress">
+    <AssociationSet Name="FK_Progress_Discipline" Association="Self.FK_Progress_Discipline">
       <End Role="Discipline" EntitySet="Disciplines" />
       <End Role="Progress" EntitySet="Progresses" />
     </AssociationSet>
@@ -173,21 +143,17 @@
       <End Role="Group" EntitySet="Groups" />
       <End Role="Person" EntitySet="People" />
     </AssociationSet>
-    <AssociationSet Name="FK_Person_Progress" Association="Self.FK_Person_Progress">
+    <AssociationSet Name="FK_Person_Roles" Association="Self.FK_Person_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Progress_Person" Association="Self.FK_Progress_Person">
       <End Role="Person" EntitySet="People" />
       <End Role="Progress" EntitySet="Progresses" />
     </AssociationSet>
     <AssociationSet Name="FK_Session_Person" Association="Self.FK_Session_Person">
       <End Role="Person" EntitySet="People" />
       <End Role="Session" EntitySet="Sessions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users" Association="Self.FK_Users">
-      <End Role="Person" EntitySet="People" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Roles" Association="Self.FK_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="User" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

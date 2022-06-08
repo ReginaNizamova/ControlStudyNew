@@ -10,7 +10,6 @@ namespace ControlStudy
         public DateTime startTime;
         public DateTime endTime;
         readonly Timer timer = new Timer();
-        readonly ControlStudyEntities userContext = new ControlStudyEntities();
 
         public SessionTimer() //Включение таймера
         {
@@ -25,8 +24,8 @@ namespace ControlStudy
             TimeSpan timeSpan = endTime - startTime;
             DateTime Date = DateTime.Now;
 
-            int idPerson = userContext.Users.Where(c => c.LoginUser == login).Select(c => c.IdPerson).FirstOrDefault();
-            var findIdPerson = userContext.Sessions.Where(c => c.IdPerson == idPerson).FirstOrDefault();
+            int idPerson = ControlStudyEntities.GetContext().People.Where(c => c.LoginUser == login).Select(c => c.IdPerson).FirstOrDefault();
+            var findIdPerson = ControlStudyEntities.GetContext().Sessions.Where(c => c.IdPerson == idPerson).FirstOrDefault();
 
 
             if(findIdPerson == null)
@@ -38,7 +37,7 @@ namespace ControlStudy
                     Time = Convert.ToString(timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds)
                 };
 
-                userContext.Sessions.Add(sessionUser);
+                ControlStudyEntities.GetContext().Sessions.Add(sessionUser);
             }
             else
             {
@@ -46,7 +45,7 @@ namespace ControlStudy
                 findIdPerson.DateSession = Date;
             }
 
-            userContext.SaveChanges();
+            ControlStudyEntities.GetContext().SaveChanges();
             timer.Stop();
         }
     }

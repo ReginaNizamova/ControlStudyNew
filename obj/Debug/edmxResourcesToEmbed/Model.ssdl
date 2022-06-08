@@ -23,6 +23,9 @@
     <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Patronimic" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="IdGroup" Type="int" Nullable="false" />
+    <Property Name="LoginUser" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Progress">
     <Key>
@@ -51,16 +54,6 @@
     <Property Name="DateSession" Type="datetime" Nullable="false" />
     <Property Name="Time" Type="varchar" MaxLength="15" Nullable="false" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="IdUser" />
-    </Key>
-    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LoginUser" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="IdRole" Type="int" Nullable="false" />
-    <Property Name="IdPerson" Type="int" Nullable="false" />
-  </EntityType>
   <Association Name="FK_Group">
     <End Role="Group" Type="Self.Group" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -75,17 +68,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_Person_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="IdRole" />
       </Principal>
-      <Dependent Role="User">
+      <Dependent Role="Person">
         <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Progress_Discipline">
+    <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+    <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discipline">
+        <PropertyRef Name="IdDiscipline" />
+      </Principal>
+      <Dependent Role="Progress">
+        <PropertyRef Name="IdDiscipline" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Progress_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="IdPerson" />
+      </Principal>
+      <Dependent Role="Progress">
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -103,20 +118,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Users">
-    <End Role="Person" Type="Self.Person" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Person">
-        <PropertyRef Name="IdPerson" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IdPerson" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="Хранилище ControlStudyModelContainer">
     <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
@@ -124,22 +125,25 @@
     <EntitySet Name="Progress" EntityType="Self.Progress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Group" Association="Self.FK_Group">
       <End Role="Group" EntitySet="Group" />
       <End Role="Person" EntitySet="Person" />
     </AssociationSet>
-    <AssociationSet Name="FK_Roles" Association="Self.FK_Roles">
+    <AssociationSet Name="FK_Person_Roles" Association="Self.FK_Person_Roles">
       <End Role="Roles" EntitySet="Roles" />
-      <End Role="User" EntitySet="User" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Progress_Discipline" Association="Self.FK_Progress_Discipline">
+      <End Role="Discipline" EntitySet="Discipline" />
+      <End Role="Progress" EntitySet="Progress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Progress_Person" Association="Self.FK_Progress_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Progress" EntitySet="Progress" />
     </AssociationSet>
     <AssociationSet Name="FK_Session_Person" Association="Self.FK_Session_Person">
       <End Role="Person" EntitySet="Person" />
       <End Role="Session" EntitySet="Session" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users" Association="Self.FK_Users">
-      <End Role="Person" EntitySet="Person" />
-      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
