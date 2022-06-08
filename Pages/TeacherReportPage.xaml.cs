@@ -30,7 +30,7 @@ namespace ControlStudy.Pages
             chartCB.ItemsSource = Enum.GetValues(typeof(SeriesChartType));
         }
 
-        private List<ReportGrades> FindGrades() // Высчитывает средний балл
+        public List<ReportGrades> FindGrades() // Высчитывает средний балл
         {
             List<ReportGrades> reportGrades = new List<ReportGrades>();
             var group = (Group)groupCB.SelectedItem;
