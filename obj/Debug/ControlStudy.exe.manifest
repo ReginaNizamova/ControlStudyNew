@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlStudy.exe" size="1883608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ControlStudy.exe" size="1885656">
       <assemblyIdentity name="ControlStudy" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cr3WkMvh+0imQqG+2kWUA/nAHHIMYyjbcxku3BMBSJs=</dsig:DigestValue>
+        <dsig:DigestValue>z7IsZoA8L11ZRAPirqVPfUWvpchNzdsUZHsHYd4Do0U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
