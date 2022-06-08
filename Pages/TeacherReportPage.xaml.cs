@@ -79,7 +79,7 @@ namespace ControlStudy.Pages
 
         private void SaveExcelClick(object sender, RoutedEventArgs e)
         {
-            Excel.CreateTableExcel(groupCB, disciplineCB, semesterCB, FindGrades());
+            Excel.CreateTableExcel(groupCB, disciplineCB, semesterCB, FindGrades().OrderBy(x => x.Person.Family).ToList());
         }
 
         private void ChartSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,7 +98,7 @@ namespace ControlStudy.Pages
                     currentSeries.ChartType = currentType;
                     currentSeries.Points.Clear();
 
-                    var listPersons = FindGrades();
+                    var listPersons = FindGrades().OrderBy(x => x.Person.Family);
 
                     foreach (var item in listPersons)
                     {
