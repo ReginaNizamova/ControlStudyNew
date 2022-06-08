@@ -20,6 +20,7 @@ namespace ControlStudy
         {
             AddEditGradeWindow window = new AddEditGradeWindow(null, dataGridProgress);
             window.ShowDialog();
+            dataGridProgress.Items.Refresh();
         }
 
         private void EditClick(object sender, RoutedEventArgs e)
@@ -52,7 +53,7 @@ namespace ControlStudy
         private void PrintClick(object sender, RoutedEventArgs e)
         {
             PrintDialog printDialog = new PrintDialog();
-            if((bool)printDialog.ShowDialog().GetValueOrDefault())
+            if(printDialog.ShowDialog().GetValueOrDefault())
             {   
                 grid.Visibility = Visibility.Collapsed;
                 int pageMargin = 5;

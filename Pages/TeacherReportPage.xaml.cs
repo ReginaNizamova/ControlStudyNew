@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using DocumentFormat.OpenXml;
+using System.Windows.Forms.DataVisualization.Charting;
 
 
 namespace ControlStudy.Pages
@@ -15,11 +16,21 @@ namespace ControlStudy.Pages
         {
             InitializeComponent();
 
+            chartGrades.ChartAreas.Add(new ChartArea("Main"));
+
+            var currentSeries = new Series("Оценки")
+            {
+                IsValueShownAsLabel = true
+            };
+
+            chartGrades.Series.Add(currentSeries);
+            
             groupCB.ItemsSource = ControlStudyEntities.GetContext().Groups.ToList();
             disciplineCB.ItemsSource = ControlStudyEntities.GetContext().Disciplines.ToList();
+            chartCB.ItemsSource = Enum.GetValues(typeof(SeriesChartType));
         }
 
-        private List<ReportGrades> FindGrades()
+        private List<ReportGrades> FindGrades() // Высчитывает средний балл
         {
             List<ReportGrades> reportGrades = new List<ReportGrades>();
             var group = (Group)groupCB.SelectedItem;
@@ -53,7 +64,7 @@ namespace ControlStudy.Pages
                         else
                         {
                             grades.Add(new Grades(0, 0));
-                            reportGrades.Add(new ReportGrades(person, null));
+                            reportGrades.Add(new ReportGrades(person, grades[i]));
                         }
                     }
                     catch (Exception ex)
@@ -61,30 +72,44 @@ namespace ControlStudy.Pages
                         MessageBox.Show(ex.Message);
                     }
                 }
-
-                dataGridGrades.ItemsSource = reportGrades;
             }
+
             return reportGrades;
         }
 
-        private void GroupCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SaveExcelClick(object sender, RoutedEventArgs e)
         {
-            FindGrades();
+            Excel.CreateTableExcel(groupCB, disciplineCB, semesterCB, FindGrades());
         }
 
-        private void DisciplineCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ChartSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FindGrades();
+            Chart();
         }
 
-        private void SemesterCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Chart() // Выводит диаграмму
         {
-            FindGrades();
-        }
+            try
+            {
+                if (groupCB.SelectedItem is Group currentGroup && disciplineCB.SelectedItem is Discipline currentDiscipline &&
+                semesterCB.SelectedItem != null && chartCB.SelectedItem is SeriesChartType currentType)
+                {
+                    Series currentSeries = chartGrades.Series.FirstOrDefault();
+                    currentSeries.ChartType = currentType;
+                    currentSeries.Points.Clear();
 
-        private void GraphicClick(object sender, RoutedEventArgs e)
-        {
-            Graphic.CreateGraphic(groupCB, disciplineCB, semesterCB, FindGrades());
+                    var listPersons = FindGrades();
+
+                    foreach (var item in listPersons)
+                    {
+                        currentSeries.Points.AddXY(item.Person.Family, item.Grades.AverageGrade);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

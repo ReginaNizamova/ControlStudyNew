@@ -5,7 +5,7 @@ namespace ControlStudy.Classes
     { 
         public ReportGrades(Person Person, Grades Grades)
         {
-            this.Person= Person;
+            this.Person = Person;
             this.Grades = Grades;
         }
 
