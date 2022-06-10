@@ -26,8 +26,6 @@ C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\AddEditGradeWindow.g.cs
 C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\AddEditGradeWindow.baml
 C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\AddEditUserWindow.g.cs
 C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\AddEditUserWindow.baml
-C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\MainWindow.g.cs
-C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\MainWindow.baml
 C:\Users\User\Desktop\ControlStudy\obj\Debug\ControlStudy_Content.g.cs
 C:\Users\User\Desktop\ControlStudy\obj\Debug\ControlStudy_MarkupCompile.cache
 C:\Users\User\Desktop\ControlStudy\obj\Debug\ControlStudy_MarkupCompile.lref
@@ -96,4 +94,6 @@ C:\Users\User\Desktop\ControlStudy\bin\Debug\Microsoft.IO.RecyclableMemoryStream
 C:\Users\User\Desktop\ControlStudy\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 C:\Users\User\Desktop\ControlStudy\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\User\Desktop\ControlStudy\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\FrameWindow.g.cs
+C:\Users\User\Desktop\ControlStudy\obj\Debug\Windows\FrameWindow.baml
 C:\Users\User\Desktop\ControlStudy\obj\Debug\ControlStudy.csprojAssemblyReference.cache

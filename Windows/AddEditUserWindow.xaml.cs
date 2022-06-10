@@ -33,9 +33,9 @@ namespace ControlStudy
             if (string.IsNullOrWhiteSpace(_currentPerson.Family) || string.IsNullOrWhiteSpace(_currentPerson.Name)
               || string.IsNullOrWhiteSpace(_currentPerson.Patronimic))
                 errors.AppendLine("ФИО");
-            if (string.IsNullOrWhiteSpace(_currentPerson.Role.Role1))
+            if (comboBoxRole.SelectedItem == null)
                 errors.AppendLine("Роль");
-            if (_currentPerson.Group.Group1 == null)
+            if (comboBoxGroup.SelectedItem == null)
                 errors.AppendLine("Группа (если роль не студент выбрать пустую строку)");
             if (string.IsNullOrWhiteSpace(_currentPerson.LoginUser))
                 errors.AppendLine("Логин");

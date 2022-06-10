@@ -5,12 +5,12 @@ using System.Windows.Media;
 
 namespace ControlStudy
 {
-    public partial class MainWindow : Window
+    public partial class FrameWindow : Window
     {
 
         private static readonly Random random = new Random();
 
-        public MainWindow()
+        public FrameWindow()
         {
             InitializeComponent();
             Manager.MainFrame = frame;
