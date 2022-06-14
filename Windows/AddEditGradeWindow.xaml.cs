@@ -70,7 +70,59 @@ namespace ControlStudy
             else if (_currentProgress.DateGrade.Date > startDateSemester2 && _currentProgress.DateGrade.Date < endDateSemester2)
                 semester = 2;
 
-         
+            switch (comboBoxGroup.Text)
+            {
+                case "115":
+                {
+                    if (semester == 1)
+                        semester = 1;
+
+                    else if (semester == 2)
+                        semester = 2;
+                    break;
+                }
+
+                case "215":
+                {
+                    if (semester == 1)
+                        semester = 3;
+
+                    else if (semester == 2)
+                        semester = 4;
+                    break;
+                }
+
+                case "315":
+                {
+                    if (semester == 1)
+                        semester = 5;
+
+                    else if (semester == 2)
+                        semester = 6;
+                    break;
+                }
+
+                case "415":
+                {
+                    if (semester == 1)
+                        semester = 7;
+
+                    else if (semester == 2)
+                        semester = 8;
+                    break;
+                }
+
+                case "515":
+                {
+                    if (semester == 1)
+                        semester = 9;
+
+                    else if (semester == 2)
+                        semester = 10;
+                    break;
+                }
+            }
+
             _currentProgress.IdPerson = idPerson;
             _currentProgress.Semester = semester;
 

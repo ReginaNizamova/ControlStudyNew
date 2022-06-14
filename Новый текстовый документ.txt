@@ -1,0 +1,116 @@
+using System.Data;
+using System.Windows.Input;
+
+namespace ControlStudy.Classes
+{
+    public class MainViewModel : NotifyPropertyChanged
+    {
+        private DataTable _data;
+        private ICommand _addRowCommand;
+        private ICommand _addColumnCommand;
+        private ICommand _setSizeCommand;
+        private ICommand _calcSumCommand;
+        private int _rowsCount;
+        private int _columnsCount;
+        
+
+        public DataTable Data // контейнер для матрицы, DataGrid привязана сюда
+        {
+            get => _data;
+            set
+            {
+                _data = value;
+                OnPropertyChanged();
+            }
+        }
+        public int RowsCount // тексбокс Строки привязан сюда
+        {
+            get => _rowsCount;
+            set
+            {
+                _rowsCount = value;
+                OnPropertyChanged();
+            }
+        }
+        public int ColumnsCount // тексбокс Колонки привязан сюда
+        {
+            get => _columnsCount;
+            set
+            {
+                _columnsCount = value;
+                OnPropertyChanged();
+            }
+        }
+       
+
+        private void AddRows(int count) // добавить строки
+        {
+            for (int i = 1; i <= count; i++)
+                Data.Rows.Add();
+            RowsCount = Data.Rows.Count;
+        }
+        private void AddColumns(int count) // добавить колонки
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                Data.Columns.Add(new DataColumn(Data.Columns.Count.ToString(), typeof(string))
+                {
+                    AllowDBNull = false,
+                    DefaultValue = ""
+                });
+            }
+            Data = Data.Copy(); // здесь и далее - хак, способ полностью перерисовать таблицу DataGrid, так как она не поддерживает динамическое изменение колонок.
+            ColumnsCount = Data.Columns.Count;
+        }
+        private void RemoveRows(int count) // удалить строки (с конца)
+        {
+            for (int i = 1; i <= count && Data.Rows.Count > 1; i++)
+                Data.Rows.RemoveAt(Data.Rows.Count - 1);
+            RowsCount = Data.Rows.Count;
+        }
+        private void RemoveColumns(int count) // удалить колонки (с конца)
+        {
+            for (int i = 1; i <= count && Data.Columns.Count > 1; i++)
+                Data.Columns.RemoveAt(Data.Columns.Count - 1);
+            Data = Data.Copy();
+            ColumnsCount = Data.Columns.Count;
+        }
+
+        // что делают команды, можно будет увидеть по биндингам на них у кнопок в xaml
+        public ICommand AddRowCommand => _addRowCommand ?? (_addRowCommand = new RelayCommand(parameter =>
+        {
+            AddRows(1);
+        }));
+        public ICommand AddColumnCommand => _addColumnCommand ?? (_addColumnCommand = new RelayCommand(parameter =>
+        {
+            AddColumns(1);
+        }));
+       
+        public ICommand SetSizeCommand => _setSizeCommand ?? (_setSizeCommand = new RelayCommand(parameter =>
+        {
+            if (RowsCount > Data.Rows.Count)
+                AddRows(RowsCount - Data.Rows.Count);
+            if (RowsCount < Data.Rows.Count)
+                RemoveRows(Data.Rows.Count - RowsCount);
+            if (ColumnsCount > Data.Columns.Count)
+                AddColumns(ColumnsCount - Data.Columns.Count);
+            if (ColumnsCount < Data.Columns.Count)
+                RemoveColumns(Data.Columns.Count - ColumnsCount);
+        }));
+
+        public ICommand CalcSumCommand => _calcSumCommand ?? (_calcSumCommand = new RelayCommand(parameter =>
+        {
+            long sum = 0;
+            for (int i = 0; i < Data.Rows.Count; i++)
+                for (int j = 0; j < Data.Columns.Count; j++)
+                    sum += (int)Data.Rows[i][j];
+            
+        }));
+        public MainViewModel() // конструктор, выполняется 1 раз при запуске программы
+        {
+            Data = new DataTable();
+            AddColumns(1);
+            AddRows(1);
+        }
+    }
+}

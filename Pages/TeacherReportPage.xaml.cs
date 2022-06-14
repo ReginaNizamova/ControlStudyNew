@@ -37,10 +37,10 @@ namespace ControlStudy.Pages
             var discipline = (Discipline)disciplineCB.SelectedItem;
             var semester = semesterCB.SelectedIndex;
 
-            if (semester == 0)
-                semester = 1;
-            else
-                semester = 2;
+            //if (semester == 0)
+            //    semester = 1;
+            //else
+            //    semester = 2;
 
             if (group != null && discipline != null)
             {
@@ -55,6 +55,54 @@ namespace ControlStudy.Pages
                     {
                         var person = persons[i];
                         var gradePerson = ControlStudyEntities.GetContext().Progresses.Where(p => p.IdPerson == person.IdPerson && p.Discipline.Discipline1 == discipline.Discipline1 && p.Semester == semester).Select(p => p.Grade);
+
+                        switch (person.Group.Group1)
+                        {
+                            case "115":
+                            {
+                                if (semester == 0)
+                                    semester = 1;
+                                else
+                                    semester = 2;
+                                break;
+                            }
+
+                            case "215":
+                            {
+                                if (semester == 0)
+                                    semester = 3;
+                                else
+                                    semester = 4;
+                                break;
+                            }
+
+                            case "315":
+                            {
+                                if (semester == 0)
+                                    semester = 5;
+                                else
+                                    semester = 6;
+                                break;
+                            }
+
+                            case "415":
+                            {
+                                if (semester == 0)
+                                    semester = 7;
+                                else
+                                    semester = 8;
+                                break;
+                            }
+
+                            case "515":
+                            {
+                                if (semester == 0)
+                                    semester = 9;
+                                else
+                                    semester = 10;
+                                break;
+                            }
+                        }
 
                         if (gradePerson.Any())
                         {

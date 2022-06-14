@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Desktop\ControlStudy\obj\Debug\
+C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\
 ControlStudy
 none
 false
 DEBUG;TRACE
-C:\Users\User\Desktop\ControlStudy\App.xaml
+C:\Users\User\Desktop\Дипломная работа\ControlStudy\App.xaml
 111269008348
 2-1881755278
 301633506346
-30524158043
+30-754523617
 Pages\TeacherPage.xaml;Pages\TeacherReportPage.xaml;Windows\AddEditGradeWindow.xaml;Windows\AddEditUserWindow.xaml;Pages\AdminJournalPage.xaml;Pages\AdminPage.xaml;Pages\AuthorizationPage.xaml;Windows\FrameWindow.xaml;Pages\StudentPage.xaml;Pages\TeacherJournalPage.xaml;Pages\AdminUsersPage.xaml;
 resource\logo.png
-True
+False
 

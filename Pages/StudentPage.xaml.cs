@@ -37,17 +37,74 @@ namespace ControlStudy
 
         private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var semester = semesterCB.SelectedIndex;
+            var semester = semesterCB.SelectedIndex;  
 
-            if (semester == 0)
-                semester = 1;
-            else
-                semester = 2;
+            switch (semesterCB.SelectedIndex)
+            {
+                case 0:
+                {
+                    semester = 1;
+                    break;
+                }
+
+                case 1:
+                {
+                    semester = 2;
+                    break;
+                }
+
+                case 2:
+                {
+                    semester = 3;
+                    break;
+                }
+
+                case 3:
+                {
+                    semester = 4;
+                    break;
+                }
+
+                case 4:
+                {
+                    semester = 5;
+                    break;
+                }
+
+                case 5:
+                {
+                    semester = 6;
+                    break;
+                }
+
+                case 6:
+                {
+                    semester = 7;
+                    break;
+                }
+
+                case 7:
+                {
+                    semester = 8;
+                    break;
+                }
+
+                case 8:
+                {
+                    semester = 9;
+                    break;
+                }
+
+                case 9:
+                {
+                    semester = 10;
+                    break;
+                }
+
+            }
 
             if(semesterCB.SelectedItem != null && disciplineCB.SelectedItem != null)
-            {
-                dataGridProgress.ItemsSource = FindProgress().Where(x => x.Discipline == disciplineCB.SelectedItem && x.Semester == semester).ToList();
-            }
+                dataGridProgress.ItemsSource = FindProgress().Where(x => x.Semester == semester && x.Discipline == disciplineCB.SelectedItem).ToList();
         }
     }
 }

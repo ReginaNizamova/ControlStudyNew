@@ -45,7 +45,7 @@
                     </Canvas>
 
                     <Canvas Margin="0 30 0 30">
-                        <DatePicker FontSize="15" x:Name="datePickerDateGrade" SelectedDate="{Binding DateGrade}" SelectedDateFormat="Short" DisplayDateStart="01.09.2021"  DisplayDateEnd="{Binding EndDate}" FontFamily="Comic Sans MS" Width="150"   Height="25"/>
+                        <DatePicker FontSize="15" DisplayDateStart="{Binding DateStart}" x:Name="datePickerDateGrade" SelectedDate="{Binding DateGrade}" SelectedDateFormat="Short"  DisplayDateEnd="{Binding DateEnd}" FontFamily="Comic Sans MS" Width="150"   Height="25"/>
                     </Canvas>
                 </StackPanel>
 

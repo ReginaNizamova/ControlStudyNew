@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +12,9 @@ namespace ControlStudy.Classes
     {
         public static void CreateTableExcel (ComboBox groupCB, ComboBox disciplineCB, ComboBox semesterCB, List<ReportGrades> FindGrades)
         {
-            using (SpreadsheetDocument document = SpreadsheetDocument.Create(@"C:\Users\User\Desktop\document.xlsx", SpreadsheetDocumentType.Workbook))
+            var pathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+
+            using (SpreadsheetDocument document = SpreadsheetDocument.Create(pathDesktop + @"\document.xlsx", SpreadsheetDocumentType.Workbook))
             {
                 WorkbookPart workbookPart = document.AddWorkbookPart();
                 workbookPart.Workbook = new Workbook();

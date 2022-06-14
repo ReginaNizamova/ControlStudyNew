@@ -37,11 +37,11 @@
 
         <DataGrid Grid.Row="1"  ColumnWidth="*" HorizontalScrollBarVisibility="Auto"  AutoGenerateColumns="False" IsReadOnly="True" Margin="25 10 15 15" x:Name="dataGridAdmin" FontSize="15"  Opacity="0.85" Background="Azure"  AlternatingRowBackground="#9ACeeb" AlternationCount="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия"   Binding="{Binding Person.Family}"/>
-                <DataGridTextColumn Header="Имя"       Binding="{Binding Person.Name}" />
-                <DataGridTextColumn Header="Отчество"  Binding="{Binding Person.Patronimic}" />
-                <DataGridTextColumn Header="Дата"      Binding="{Binding DateSession, StringFormat=dd.MM.yy}" />
-                <DataGridTextColumn Header="Время"     Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Логин"   Binding="{Binding Person.LoginUser}" Width="0.8*"/>
+                <DataGridTextColumn Header="Фамилия"   Binding="{Binding Person.Family}" Width="0.8*"/>
+                <DataGridTextColumn Header="Имя"       Binding="{Binding Person.Name}" Width="0.8*"/>
+                <DataGridTextColumn Header="Дата и время последней сессии" Binding="{Binding DateSession, StringFormat=dd.MM.yy HH:mm:ss}" Width="2*"/>
+                <DataGridTextColumn Header="Время в сети"     Binding="{Binding Time}"/>
             </DataGrid.Columns>
             <DataGrid.Resources>
                 <Style TargetType="DataGridColumnHeader">
