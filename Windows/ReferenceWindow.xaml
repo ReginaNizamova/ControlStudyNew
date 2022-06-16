@@ -1,0 +1,34 @@
+﻿<Window x:Class="ControlStudy.Windows.ReferenceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlStudy.Windows"
+        mc:Ignorable="d"
+        Title="Справочная информация" Icon="/Resource/icon.ico" WindowStartupLocation="CenterScreen"  Height="300" Width="500" MaxHeight="300" MaxWidth="500" Background="#031745">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="1. Выберите семестр" Margin="0 15 0 15" FontSize="14" Foreground="White" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="2. Выберите дисциплину" FontSize="14" Foreground="White" FontFamily="Comic Sans MS"/>
+        </StackPanel>
+
+        <DataGrid ColumnWidth="*" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" Margin="10" x:Name="referenceData" FontSize="14" Opacity="0.85" Background="Azure"  AlternatingRowBackground="#9ACeeb" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Семестр" Width="0.5*" Binding="{Binding Semester}"/>
+                <DataGridTextColumn Header="Даты"  Width="*" Binding="{Binding Dates}"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#9ACeeb"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Height" Value="20"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+    </Grid>
+</Window>

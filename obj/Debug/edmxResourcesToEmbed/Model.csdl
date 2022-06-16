@@ -63,6 +63,7 @@
     <Property Name="DateSession" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Time" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Person" Relationship="Self.FK_Session_Person" FromRole="Session" ToRole="Person" />
+    <Property Name="EndDateSession" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK_Progress_Discipline">
     <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />

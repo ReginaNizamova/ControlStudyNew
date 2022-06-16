@@ -53,6 +53,7 @@
     <Property Name="IdPerson" Type="int" Nullable="false" />
     <Property Name="DateSession" Type="datetime" Nullable="false" />
     <Property Name="Time" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EndDateSession" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_Group">
     <End Role="Group" Type="Self.Group" Multiplicity="1">

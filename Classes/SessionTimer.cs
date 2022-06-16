@@ -1,5 +1,6 @@
 ﻿using ControlStudy;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Timer = System.Timers.Timer;
 
@@ -22,7 +23,6 @@ namespace ControlStudy
         {
             endTime = DateTime.Now;
             TimeSpan timeSpan = endTime - startTime;
-            DateTime Date = DateTime.Now;
 
             int idPerson = ControlStudyEntities.GetContext().People.Where(c => c.LoginUser == login).Select(c => c.IdPerson).FirstOrDefault();
             var findIdPerson = ControlStudyEntities.GetContext().Sessions.Where(c => c.IdPerson == idPerson).FirstOrDefault();
@@ -32,9 +32,10 @@ namespace ControlStudy
             {
                 Session sessionUser = new Session
                 {
-                    DateSession = Date,
+                    DateSession = startTime,
                     IdPerson = idPerson,
-                    Time = Convert.ToString(timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds)
+                    Time = Convert.ToString(timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds),
+                    EndDateSession = endTime
                 };
 
                 ControlStudyEntities.GetContext().Sessions.Add(sessionUser);
@@ -42,7 +43,8 @@ namespace ControlStudy
             else
             {
                 findIdPerson.Time = Convert.ToString(timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
-                findIdPerson.DateSession = Date;
+                findIdPerson.DateSession = startTime;
+                findIdPerson.EndDateSession = endTime;
             }
 
             ControlStudyEntities.GetContext().SaveChanges();

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище ControlStudyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище ControlStudyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Discipline">
           <Key>
             <PropertyRef Name="IdDiscipline" />
@@ -58,6 +58,7 @@
           <Property Name="IdPerson" Type="int" Nullable="false" />
           <Property Name="DateSession" Type="datetime" Nullable="false" />
           <Property Name="Time" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="EndDateSession" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="1">
@@ -151,8 +152,7 @@
             <End Role="Session" EntitySet="Session" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ControlStudyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -219,6 +219,7 @@
           <Property Name="DateSession" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Time" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Session_Person" FromRole="Session" ToRole="Person" />
+          <Property Name="EndDateSession" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_Progress_Discipline">
           <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
@@ -371,6 +372,7 @@
           <EntitySetMapping Name="Sessions">
             <EntityTypeMapping TypeName="ControlStudyModel.Session">
               <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="EndDateSession" ColumnName="EndDateSession" />
                 <ScalarProperty Name="IdSession" ColumnName="IdSession" />
                 <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
                 <ScalarProperty Name="DateSession" ColumnName="DateSession" />

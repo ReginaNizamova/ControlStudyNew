@@ -8,13 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TeacherReportPage">
-
-    <Page.Resources>
-        <local1:ColorConverter x:Key="ColorConverter"/>
-        <Style TargetType="{x:Type DataGridRow}">
-            <Setter Property="Background" Value="{Binding Grades.AverageGrade, Converter={StaticResource ColorConverter}}"/>
-        </Style>
-    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

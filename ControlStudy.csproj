@@ -120,9 +120,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\ColorConverter.cs" />
     <Compile Include="Classes\Grades.cs" />
     <Compile Include="Classes\Excel.cs" />
+    <Compile Include="Classes\Reference.cs" />
     <Compile Include="Discipline.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -188,6 +188,9 @@
       <DependentUpon>AdminUsersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\SessionTimer.cs" />
+    <Compile Include="Windows\ReferenceWindow.xaml.cs">
+      <DependentUpon>ReferenceWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\TeacherPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AdminUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReferenceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,6 +334,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\semester.png" />
+    <Resource Include="Resource\discipline.png" />
+    <Resource Include="Resource\reference.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

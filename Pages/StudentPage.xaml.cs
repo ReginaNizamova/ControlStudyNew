@@ -4,8 +4,7 @@ using System.Windows.Controls;
 using System.Data;
 using System.Linq;
 using System.Collections.Generic;
-using System;
-using ControlStudy.Pages;
+using ControlStudy.Windows;
 
 namespace ControlStudy
 {
@@ -26,6 +25,73 @@ namespace ControlStudy
             void MainWindowClosing(object sender, CancelEventArgs e) // При закрытии формы сохраняет значение таймера
             {
                 Timer.SaveTimeSession(loginNowUser);
+            }
+
+            List<int> semesters = new List<int>();
+
+            var group = ControlStudyEntities.GetContext().People.Where(p => p.LoginUser == login).Select(p => p.Group.Group1).FirstOrDefault();
+
+            switch (group)
+            {
+                case "115":
+                {
+                    semesters.Add(1);
+                    semesters.Add(2);
+                    semesterCB.ItemsSource = semesters;
+                    break;
+                }
+
+                case "215":
+                {
+                    semesters.Add(1);
+                    semesters.Add(2);
+                    semesters.Add(3);
+                    semesters.Add(4);
+                    semesterCB.ItemsSource = semesters;
+                    break;
+                }
+
+                case "315":
+                {
+                    semesters.Add(1);
+                    semesters.Add(2);
+                    semesters.Add(3);
+                    semesters.Add(4);
+                    semesters.Add(5);
+                    semesters.Add(6);
+                    semesterCB.ItemsSource = semesters;
+                    break;
+                }
+
+                case "415":
+                {
+                    semesters.Add(1);
+                    semesters.Add(2);
+                    semesters.Add(3);
+                    semesters.Add(4);
+                    semesters.Add(5);
+                    semesters.Add(6);
+                    semesters.Add(7);
+                    semesters.Add(8);
+                    semesterCB.ItemsSource = semesters;
+                    break;
+                }
+
+                case "515":
+                {
+                    semesters.Add(1);
+                    semesters.Add(2);
+                    semesters.Add(3);
+                    semesters.Add(4);
+                    semesters.Add(5);
+                    semesters.Add(6);
+                    semesters.Add(7);
+                    semesters.Add(8);
+                    semesters.Add(9);
+                    semesters.Add(10);
+                    semesterCB.ItemsSource = semesters;
+                    break;
+                }
             }
         }
 
@@ -105,6 +171,13 @@ namespace ControlStudy
 
             if(semesterCB.SelectedItem != null && disciplineCB.SelectedItem != null)
                 dataGridProgress.ItemsSource = FindProgress().Where(x => x.Semester == semester && x.Discipline == disciplineCB.SelectedItem).ToList();
+        }
+
+        private void ReferenceButtonClick(object sender, RoutedEventArgs e)
+        {
+            var group = ControlStudyEntities.GetContext().People.Where(p => p.LoginUser == login).Select(p => p.Group.Group1).FirstOrDefault();
+            ReferenceWindow window = new ReferenceWindow(group);
+            window.ShowDialog();
         }
     }
 }

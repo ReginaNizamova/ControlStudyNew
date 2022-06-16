@@ -18,6 +18,7 @@ namespace ControlStudy
         public int IdPerson { get; set; }
         public System.DateTime DateSession { get; set; }
         public string Time { get; set; }
+        public System.DateTime EndDateSession { get; set; }
     
         public virtual Person Person { get; set; }
     }

@@ -37,18 +37,12 @@ namespace ControlStudy.Pages
             var discipline = (Discipline)disciplineCB.SelectedItem;
             var semester = semesterCB.SelectedIndex;
 
-            //if (semester == 0)
-            //    semester = 1;
-            //else
-            //    semester = 2;
-
             if (group != null && discipline != null)
             {
                 var persons = ControlStudyEntities.GetContext().People.Where(p => p.Group.Group1 == group.Group1).ToList();
 
                 List<Grades> grades = new List<Grades>();
                
-
                 for (int i = 0; i < persons.Count; i++)
                 {
                     try

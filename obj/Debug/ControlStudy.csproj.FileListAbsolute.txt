@@ -151,3 +151,5 @@ C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\Con
 C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\ControlStudy.exe
 C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\ControlStudy.pdb
 C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\ControlStudy.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\Windows\ReferenceWindow.g.cs
+C:\Users\User\Desktop\Дипломная работа\ControlStudy\obj\Debug\Windows\ReferenceWindow.baml
