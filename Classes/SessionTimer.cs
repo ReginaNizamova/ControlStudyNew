@@ -1,21 +1,15 @@
-﻿using ControlStudy;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using Timer = System.Timers.Timer;
 
 namespace ControlStudy
 {
-    class SessionTimer //Таймер сессии
+    class SessionTimer 
     {
         public DateTime startTime;
         public DateTime endTime;
-        readonly Timer timer = new Timer();
 
-        public SessionTimer() //Включение таймера
+        public SessionTimer()
         {
-            timer.Interval = 1000;
-            timer.Start();
             startTime = DateTime.Now;
         }
 
@@ -48,7 +42,6 @@ namespace ControlStudy
             }
 
             ControlStudyEntities.GetContext().SaveChanges();
-            timer.Stop();
         }
     }
 }

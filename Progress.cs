@@ -20,7 +20,35 @@ namespace ControlStudy
         public int Grade { get; set; }
         public System.DateTime DateGrade { get; set; }
         public int Semester { get; set; }
-    
+
+        private DateTime _dateStart;
+        public DateTime DateStart
+        {
+            get
+            {
+                _dateStart = Convert.ToDateTime("01.01.2022");
+                return _dateStart;
+            }
+            set
+            {
+
+            }
+        }
+
+        private DateTime _dateEnd;
+        public DateTime DateEnd
+        {
+            get
+            {
+                _dateEnd = DateTime.Today;
+                return _dateEnd;
+            }
+            set
+            {
+
+            }
+        }
+
         public virtual Discipline Discipline { get; set; }
         public virtual Person Person { get; set; }
     }
